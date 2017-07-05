@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Popular Movies s1</string>
+
+
+    <string name="api_key">YOUR_API_KEY_HERE</string>
+    <string name="base_url">https://api.themoviedb.org/3/movie/</string>
+    <string name="topRatedUrladd">top_rated/</string>
+    <string name="popularUrladd">popular/</string>
+    <string name="api_Parameter">api_key</string>
+    <string name="failedNetworkMessage">Unable to load data from network, please make sure youre connected to an internet network</string>
+    <string name="alertMessage_noNetwork">No network connection, Do you want to close the app or retry</string>
+    <string name="pref_most_popular">Most Popular</string>
+    <string name="pref_rating_label">Top Rating</string>
+    <string name="prefSortKey">Sorting</string>
+    <string name="movieTitle">Movie Title</string>
+    <string name="movieReleaseDate">Movie Release Date</string>
+    <string name="movierating">Movie Rating</string>
+    <string name="progressDialogMessage">please wait....</string>
+    <string name="reviews">Reviews</string>
+    <string name="trailers">Trailers</string>
+    <string name="no_trailer">No trailer for this movie</string>
+    <string name="no_review">No reviews for this movie</string>
+    <string name="no_favorites">No Favorites yet</string>
+    <string name="favorites">Favorites</string>
+</resources>

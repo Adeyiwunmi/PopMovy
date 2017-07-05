@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:id="@+id/id_app_bar_layout"
+        >
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.CollapsingToolbarLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/id_collapsing_toolbar"
+        app:contentScrim="?attr/colorPrimary"
+        app:expandedTitleMarginStart="48dp"
+        app:expandedTitleMarginEnd="64dp"
+        android:fitsSystemWindows="true"
+        app:layout_scrollFlags= "scroll|exitUntilCollapsed">
+
+
+        <android.support.v4.widget.NestedScrollView android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:id="@+id/idMoviedetailScrollView">
+
+            <LinearLayout
+
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context="com.jp.popularmoviess1.MovieDetailActivity">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/textviewhieght"
+                    android:text="@string/movieTitle"
+                    android:background="@color/title_green"
+                    android:gravity="center"
+                    android:textSize="@dimen/titleTextSize"
+                    android:id="@+id/idMovieTitle"
+                    android:textColor="@color/white"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height= "@dimen/onefifty"
+                    android:layout_marginBottom="@dimen/threedp"
+                    android:layout_marginTop="@dimen/threedp"
+
+                    android:orientation="horizontal">
+
+                    <com.androidnetworking.widget.ANImageView
+                        android:id="@+id/idMoviePicture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/fivedp">
+
+                        <TextView
+                            android:id="@+id/idMovieReleaseDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="@dimen/fourtyThree"
+                            android:layout_marginTop="@dimen/thirtySeven"
+                            android:text="@string/movieReleaseDate"
+                            android:textSize="@dimen/eighteensp"/>
+
+                        <TextView
+                            android:id="@+id/idMovieRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/movierating"
+                            android:layout_centerVertical="true"
+                            android:layout_alignStart="@+id/idMovieReleaseDate"
+                            android:layout_marginEnd="@dimen/sixteenDp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="overview"
+                    android:paddingLeft="@dimen/fivedp"
+                    android:textSize="@dimen/eighteensp"
+                    android:id="@+id/idMovieOverview"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trailers"
+                        android:textSize="@dimen/eighteensp"
+                        android:layout_marginTop="@dimen/threedp"
+                        android:textStyle="bold"
+                        android:fontFamily="ubuntu"
+                        android:textColor="@color/black"/>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fivedp">
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/idTrailerRecyclerView">
+
+                        </android.support.v7.widget.RecyclerView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/idTextViewNoTrailer"
+                            android:visibility="gone"
+                            />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reviews"
+                        android:textSize="@dimen/eighteensp"
+                        android:layout_marginTop="@dimen/threedp"
+                        android:textStyle="bold"
+                        android:fontFamily="ubuntu"
+                        android:textColor="@color/black"/>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/idRecyclerViewReview">
+
+                        </android.support.v7.widget.RecyclerView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/idNoReviewTv"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+
+
+    </android.support.design.widget.CollapsingToolbarLayout>
+
+   <android.support.design.widget.FloatingActionButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_anchor="@id/idMoviedetailScrollView"
+    app:layout_anchorGravity="bottom|end|right"
+       android:tint="@color/colorPrimary"
+       app:backgroundTint="@color/white"
+       android:id="@+id/idFloatingActionButton"
+    android:layout_margin="16dp" android:src="@drawable/star_2"
+    />
+
+    </android.support.design.widget.CoordinatorLayout>
+

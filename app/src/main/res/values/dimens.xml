@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="two_hundre">200dp</dimen>
+    <dimen name="textviewhieght">140dp</dimen>
+    <dimen name="titleTextSize">30sp</dimen>
+    <dimen name="threedp">3dp</dimen>
+    <dimen name="onefifty">150dp</dimen>
+    <dimen name="fivedp">5dp</dimen>
+    <dimen name="fourtyThree">43dp</dimen>
+    <dimen name="thirtySeven">37dp</dimen>
+    <dimen name="eighteensp">18sp</dimen>
+    <dimen name="sixteenDp">16dp</dimen>
+</resources>

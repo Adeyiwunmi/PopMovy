@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+<item
+    android:id="@+id/menu_refresh"
+      app:showAsAction="ifRoom"
+    android:title="Refresh">
+
+</item>
+
+
+    <item
+        android:id="@+id/action_most_popular"
+        app:showAsAction="never"
+        android:title="@string/pref_most_popular">
+
+    </item>
+
+
+    <item
+        android:id="@+id/action_top_rating"
+        app:showAsAction="never"
+        android:title="@string/pref_rating_label">
+
+    </item>
+
+    <item
+        android:id="@+id/action_favorites"
+        android:title="Favourites"
+        app:showAsAction="never"
+        >
+
+    </item>
+
+
+
+</menu>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/fivedp">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Content "
+    android:textColor="@color/black"
+    android:fontFamily="sans-serif"
+    android:id="@+id/idReviewContentText"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Author"
+        android:id="@+id/idReviewAuthorText"
+        android:textStyle="bold"
+        android:paddingTop="5dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@id/idReviewContentText"
+        android:fontFamily="ubuntu"/>
+</RelativeLayout>
