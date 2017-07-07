@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -59,32 +60,34 @@ public class MainActivity extends AppCompatActivity {
 
         progressDialog.setMessage(getString(R.string.progressDialogMessage));
 
-        if (savedInstanceState ==null ||!savedInstanceState.containsKey(MOVIE_LIST)){
+        if (savedInstanceState ==null ){
             movieArrayList = new ArrayList<>();
           showProgressDialog();
             reQuestBasedOnsort();
-            setGridPosition();
+
         } else {
 
             movieArrayList = savedInstanceState.getParcelableArrayList(MOVIE_LIST);
 
-          movieAdapt = new MovieAdapt(movieArrayList, getApplicationContext());
-            gridView.setAdapter(movieAdapt);
-            setGridPosition();
+            movieAdapt = new MovieAdapt(movieArrayList, getApplicationContext());
 
-//            if (state!=null){
-  //              gridView.onRestoreInstanceState(state);
-    //        }
 
-      //      gridViewPosition = savedInstanceState.getInt(KEY_SELECTED_POSITION);
-        //    gridView.setSelection(gridViewPosition);
+
+            //            if (state!=null){
+            //              gridView.onRestoreInstanceState(state);
+            //        }
+
+            //      gridViewPosition = savedInstanceState.getInt(KEY_SELECTED_POSITION);
+            //    gridView.setSelection(gridViewPosition);
         }
+        gridView.setAdapter(movieAdapt);
+        gridView.smoothScrollToPosition(gridViewPosition);
 
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              gridViewPosition = position;
+
                 Movie movieSend = movieArrayList.get(position);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("movie", movieSend);
@@ -107,39 +110,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-     setGridPosition();
-        super.onStart();
-    }
 
 
-    @Override
-    protected void onResume(){
-      //  gridView.setSelection(gridViewPosition);
-        setGridPosition();
-        super.onResume();
-    }
 
-
-    @Override
-    protected void onPause() {
-       gridViewPosition = gridView.getFirstVisiblePosition();
-        super.onPause();
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        setGridPosition();
-        //gridViewPosition = savedInstanceState.getInt(KEY_SELECTED_POSITION);
-        //gridView.setSelection(gridViewPosition);
-
-       // if (state!= null){
-         //   gridView.onRestoreInstanceState(state);
-
-        //}
-        super.onRestoreInstanceState(savedInstanceState);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -159,16 +132,19 @@ public class MainActivity extends AppCompatActivity {
 
             changeSort(getString(R.string.pref_most_popular));
             makeRequestSuccess("popular/");
+            getSupportActionBar().setTitle(getString(R.string.pref_most_popular));
             //do for action most popular
             return true;
         } else if (id == R.id.action_top_rating) {
 
             changeSort(getString(R.string.pref_rating_label));
             makeRequestSuccess("top_rated/");
+            getSupportActionBar().setTitle(getString(R.string.pref_rating_label));
 
             return true;
         } else if (id == R.id.menu_refresh) {
             reQuestBasedOnsort();
+
             return true;
         }
         else  if (id == R.id.action_favorites){
@@ -229,8 +205,10 @@ public class MainActivity extends AppCompatActivity {
                                 movieArrayList.add(movie);
                             }
                             movieAdapt = new MovieAdapt(movieArrayList, getApplicationContext());
+
+
                             gridView.setAdapter(movieAdapt);
-                          setGridPosition();
+
                             hideProgressDialog();
 
                         } catch (Exception e) {
@@ -286,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
               switch (select) {
                   case "Most Popular":
                       makeRequestSuccess("popular/");
-                   getSupportActionBar().setTitle(getString(R.string.pref_most_popular));
+                      getSupportActionBar().setTitle(getString(R.string.pref_most_popular));
                       break;
 
                   case "Top Rating":
@@ -304,6 +282,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onSaveInstanceState (Bundle  outState) {
+        super.onSaveInstanceState(outState);
+
         outState.putParcelableArrayList(MOVIE_LIST, movieArrayList);
         gridViewPosition = gridView.getFirstVisiblePosition();
         outState.putInt(KEY_SELECTED_POSITION, gridViewPosition);
@@ -311,7 +291,6 @@ public class MainActivity extends AppCompatActivity {
         outState.putParcelable("key", state);
 
 
-        super.onSaveInstanceState(outState);
 
     }
        public void loadFavorites(){
@@ -336,7 +315,7 @@ public class MainActivity extends AppCompatActivity {
                        movieArrayList.add(movie);
                    }
                    gridView.setAdapter(new MovieAdapt(movieArrayList, getApplicationContext()));
-                     setGridPosition();
+
 
                } else {
 
@@ -351,12 +330,6 @@ public class MainActivity extends AppCompatActivity {
 
        }
 
-
-public void setGridPosition(){
-      //  gridView = (GridView)findViewById(R.id.idMovieGrid);
-      gridView.smoothScrollToPosition(gridViewPosition);
-    gridView.setSelection(gridViewPosition);
-}
 
 }
 

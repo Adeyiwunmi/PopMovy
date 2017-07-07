@@ -283,10 +283,10 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
 
 
     public  void clickFavourite(){
-      //if (isMovieFav()){
+   if    (isMovieFav()){
 
-        //  Toast.makeText(this, "Movie is Favorite already ", Toast.LENGTH_SHORT).show();
-      //} else {
+         Toast.makeText(this, "Movie is Favorite already ", Toast.LENGTH_SHORT).show();
+      } else {
           ContentValues contentValues = new ContentValues();
 
           contentValues.put(FavoriteMoviesContract.FavMovieEntry.COLUMN_MOVIE_TITLE, movieTitle);
@@ -299,7 +299,7 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
           getContentResolver().insert(FavoriteMoviesContract.FavMovieEntry.CONTENT_URI, contentValues);
           isFavorite = true;
           floatingActionButton.setBackgroundTintList(getResources().getColorStateList(R.color.red));
-      //}
+      }
 
     }
 
