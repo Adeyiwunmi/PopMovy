@@ -81,7 +81,14 @@ public class MainActivity extends AppCompatActivity {
             //    gridView.setSelection(gridViewPosition);
         }
         gridView.setAdapter(movieAdapt);
-        gridView.smoothScrollToPosition(gridViewPosition);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+              //gridView.setSelection(gridViewPosition);
+                gridView.smoothScrollToPositionFromTop(gridViewPosition,0);
+            }
+        },3000);
 
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
